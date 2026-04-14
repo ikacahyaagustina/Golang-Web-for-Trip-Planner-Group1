@@ -34,7 +34,7 @@ Project ini sudah dites berjalan dengan kombinasi:
 ## Konfigurasi Environment
 
 1. Salin isi `.env.example` ke `.env` jika belum ada.
-2. Pastikan isinya sesuai server PostgreSQL Anda:
+2. Pastikan isinya sesuai server PostgreSQL Anda (Pastikan DB_PASSWORD sesuai dengan password yang anda gunakan):
 
 ```env
 DB_HOST=localhost
