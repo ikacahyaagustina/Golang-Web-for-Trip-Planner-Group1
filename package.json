@@ -1,0 +1,30 @@
+{
+  "name": "golang-web-for-trip-planner-group1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "db:test": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikacahyaagustina/Golang-Web-for-Trip-Planner-Group1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18",
+    "npm": ">=9"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ikacahyaagustina/Golang-Web-for-Trip-Planner-Group1/issues"
+  },
+  "homepage": "https://github.com/ikacahyaagustina/Golang-Web-for-Trip-Planner-Group1#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "pg": "^8.20.0"
+  }
+}
