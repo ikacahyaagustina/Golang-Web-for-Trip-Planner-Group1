@@ -5,7 +5,11 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "db:test": "node src/index.js"
+    "dev": "nodemon src/index.js",
+    "db:init": "node src/config/initDb.js",
+    "db:seed": "node src/config/seedDb.js",
+    "db:test": "node src/config/testDb.js",
+    "db:check": "node src/config/checkTables.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +28,13 @@
   },
   "homepage": "https://github.com/ikacahyaagustina/Golang-Web-for-Trip-Planner-Group1#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
     "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

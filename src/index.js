@@ -1,17 +1,36 @@
-const { testConnection, pool } = require('./db');
+const dotenv = require('dotenv');
+const app = require('./app');
+const { pool, testConnection } = require('./config/db');
 
-async function main() {
+dotenv.config();
+
+const PORT = Number(process.env.PORT || 3000);
+
+async function bootstrap() {
   try {
-    const currentTime = await testConnection();
+    await testConnection();
     console.log('Database connected successfully.');
-    console.log('Server time:', currentTime);
+
+    const server = app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+
+    const shutdown = async (signal) => {
+      console.log(`${signal} received. Closing server...`);
+
+      server.close(async () => {
+        await pool.end();
+        process.exit(0);
+      });
+    };
+
+    process.on('SIGINT', () => shutdown('SIGINT'));
+    process.on('SIGTERM', () => shutdown('SIGTERM'));
   } catch (error) {
-    console.error('Database connection failed.');
+    console.error('Failed to start application.');
     console.error(error.message);
-    process.exitCode = 1;
-  } finally {
-    await pool.end();
+    process.exit(1);
   }
 }
 
-main();
+bootstrap();
